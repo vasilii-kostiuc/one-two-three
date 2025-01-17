@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\GameCreateRequest;
+use App\Http\Resources\GameResource;
 use App\Http\Services\GameService;
+use App\Models\Game;
 use Illuminate\Http\Request;
 
 class GameController extends Controller
@@ -13,6 +15,9 @@ class GameController extends Controller
 
     public function __construct(GameService $gameService)
     {
+        $game = new Game();
+        //$game->game
+
         $this->gameService = $gameService;
     }
 
@@ -20,9 +25,6 @@ class GameController extends Controller
     {
         $game = $this->gameService->create($request->validated());
 
-        return response()->json($game, 201);
-
+        return new GameResource($game);
     }
-
-
 }

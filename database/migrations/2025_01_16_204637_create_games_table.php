@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('gamer_1_id')->nullable()->constrained('gamer');
             $table->foreignId('gamer_2_id')->nullable()->constrained('gamer');
+            $table->string('game_key')->nullable();
+            $table->integer('game_type');
             $table->timestamps();
         });
     }

@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->boolean('is_anonymous')->default(true);
-            $table->string('game_key')->nullable();
             $table->timestamps();
 
         });

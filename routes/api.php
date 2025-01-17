@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\GameController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('categories', [\App\Http\Controllers\Api\CategoryController::class, 'index']);
+Route::post('games', [GameController::class, 'store']);
