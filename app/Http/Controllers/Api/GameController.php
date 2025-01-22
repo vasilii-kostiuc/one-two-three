@@ -21,9 +21,15 @@ class GameController extends Controller
         $this->gameService = $gameService;
     }
 
+    public function index()
+    {
+        return response()->json(['dffds'=>'GGGGGGGGGGGG']);
+    }
+
     public function store(GameCreateRequest $request)
     {
         $game = $this->gameService->create($request->validated());
+        //return response()->json(['rrrrrrrrrrrrrrrrrr'=>'GGGGGGGGGGGG']);
 
         return new GameResource($game);
     }

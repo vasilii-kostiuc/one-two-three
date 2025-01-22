@@ -13,7 +13,7 @@ class GameCreateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class GameCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'game_type'=> [Rule::in([GameType::ComputerGame, GameType::FriendGame])],
+            'game_type'=> [Rule::in([GameType::ComputerGame, GameType::FriendGame, GameType::DirectLinkGame])],
             'time_per_move' => ['integer'],
         ];
     }
